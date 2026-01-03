@@ -8,30 +8,32 @@ export default function GalleryGrid() {
   const [selectedImage, setSelectedImage] = useState(null);
   const page = 1;
 
-  const { data, isLoading } = useQuery({
+  const { data: images, isLoading } = useQuery({
     queryKey: ["images", page],
     queryFn: () => fetchImages(page),
   });
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) {
+    return <div className="text-center py-10">Loading photos...</div>;
+  }
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {data?.map((img) => (
-          <div key={img.id} onClick={() => setSelectedImage(img)}>
-            <ImageCard image={img} />
-          </div>
+      <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {images?.map((img) => (
+          <ImageCard
+            key={img.id}
+            image={img}
+            onClick={() => setSelectedImage(img)}
+          />
         ))}
       </div>
 
       {/* Modal */}
-      {selectedImage && (
-        <ImageModal
-          image={selectedImage}
-          onClose={() => setSelectedImage(null)}
-        />
-      )}
+      <ImageModal
+        image={selectedImage}
+        onClose={() => setSelectedImage(null)}
+      />
     </>
   );
 }

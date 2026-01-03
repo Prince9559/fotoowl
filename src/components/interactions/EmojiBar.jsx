@@ -1,6 +1,5 @@
 import { useReactionStore } from "../../store/useReactionStore";
 
-
 const EMOJIS = ["❤️", "🔥", "😮"];
 
 export default function EmojiBar({ imageId }) {
