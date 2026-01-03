@@ -1,4 +1,3 @@
-// src/components/interactions/CommentBox.jsx
 import { useState } from "react";
 import { tx, id } from "@instantdb/react";
 import db from "../../api/instantdb";
@@ -8,7 +7,7 @@ export default function CommentBox({ imageId }) {
   const [error, setError] = useState("");
 
   const addComment = async (e) => {
-    e.stopPropagation(); // 👈 image open bug fix
+    e.stopPropagation();
 
     if (!text.trim()) return;
 

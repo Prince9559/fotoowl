@@ -13,10 +13,9 @@ export default function ImageCard({ image, onClick }) {
         className="w-full h-60 object-cover"
       />
 
-      {/* 👇 yahan se niche interaction area */}
       <div
         className="p-3"
-        onClick={(e) => e.stopPropagation()} // ⭐ VERY IMPORTANT
+        onClick={(e) => e.stopPropagation()} 
       >
         <div className="text-sm font-medium">
           {image.user.name}

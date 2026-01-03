@@ -4,7 +4,8 @@ import { fetchImages } from "../../api/unsplash";
 import ImageCard from "./ImageCard";
 import ImageModal from "./ImageModal";
 
-export default function GalleryGrid() {
+export default function GalleryGrid() 
+{
   const [selectedImage, setSelectedImage] = useState(null);
   const page = 1;
 
@@ -29,7 +30,6 @@ export default function GalleryGrid() {
         ))}
       </div>
 
-      {/* Modal */}
       <ImageModal
         image={selectedImage}
         onClose={() => setSelectedImage(null)}
